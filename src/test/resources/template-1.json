@@ -1,0 +1,44 @@
+{
+  "index_patterns": [
+    "search_test_*"
+  ],
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_custom_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    },
+    "number_of_shards": 2
+  },
+  "mappings": {
+    "type": {
+      "dynamic": false,
+      "properties": {
+        "name": {
+          "type": "text",
+          "fielddata": true
+        },
+        "options": {
+          "type": "nested",
+          "dynamic": false,
+          "properties": {
+            "name": {
+              "type": "keyword"
+            },
+            "value": {
+              "type": "text",
+              "fielddata": true,
+              "analyzer": "my_custom_analyzer"
+            }
+          }
+        }
+      }
+    }
+  }
+}

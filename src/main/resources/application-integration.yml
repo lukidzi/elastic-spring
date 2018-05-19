@@ -1,0 +1,8 @@
+
+elastic:
+  server: localhost
+  cluster: my_cluster
+  index:
+    first: search_test_1
+    second: ngram_test_1
+  port: 9350

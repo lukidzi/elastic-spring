@@ -1,0 +1,8 @@
+spring.application.name: elastic-demo
+elastic:
+  server: localhost
+  cluster: docker-cluster
+  index:
+    first: search_test_1
+    second: ngram_test_1
+  port: 9300

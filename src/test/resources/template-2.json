@@ -1,0 +1,42 @@
+{
+  "index_patterns": [
+    "ngram_test_*"
+  ],
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_custom_analyzer": {
+          "type": "custom",
+          "tokenizer": "my_tokenizer",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      },
+      "tokenizer": {
+        "my_tokenizer": {
+          "type": "ngram",
+          "min_gram": 3,
+          "max_gram": 10,
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
+        }
+      }
+    },
+    "number_of_shards": 2
+  },
+  "mappings": {
+    "type": {
+      "dynamic": false,
+      "properties": {
+        "name": {
+          "type": "text",
+          "fielddata": true,
+          "analyzer": "my_custom_analyzer"
+        }
+      }
+    }
+  }
+}
