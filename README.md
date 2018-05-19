@@ -1,4 +1,4 @@
-# Spring and ElasticSearcg
+# Spring and ElasticSearch
 This is simple application with elasticsearch and springboot 2.0
 
 # Things done
